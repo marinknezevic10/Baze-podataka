@@ -1,0 +1,7 @@
+//određivanje koji trener nema klub pomoću count funkcije
+
+select a.*, count(b.sifra) as ukupnoklubova
+        from trener a 
+        left join klub b on a.sifra=b.trener
+        group by a.sifra,a.ime,a.prezime,
+        a.prethodniklub ,a.nacionalnost ;
