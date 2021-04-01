@@ -1,0 +1,12 @@
+//spajanje tablica pomoću inner joina, te stavljanje više podataka u jedan stupac pomoću concata
+//na kraju grupiranje po nazivu
+
+select a.naziv as klub,a.brojigracauklubu as brojigracauklubu,a.prosjekgodina, a.naziv,
+       concat(c.nazivstadiona,' ',c.kapacitet) as zanimljivosti,
+            concat(b.ime, ' ', b.prezime) as trener,
+            a.sifra, count(b.sifra) as trenera
+            from klub a inner join trener b
+            on a.trener=b.sifra 
+            inner join zanimljivosti c 
+            on a.zanimljivosti=c.sifra
+            group by a.naziv;
