@@ -1,0 +1,11 @@
+//dohvaćanje podataka spajanjem tablica
+
+select a.sifra, a.ime, a.prezime,b.naziv as nazivkluba,
+       concat(c.nastupi,' ',c.golovi,' ',c.asistencije) as statistika
+        from igrac a inner join klub b
+        on a.klub =b.sifra 
+        inner join statistika c on
+        a.statistika =c.sifra;
+        
+        
+        
